@@ -1,56 +1,55 @@
 package com.example.marcin.siusproject;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.inverce.mod.core.IM;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
-public class EventActivity extends AppCompatActivity {
+public class EventFragment extends Fragment {
     private static final String QUERY_URL = "https://webserviceaplikacjemobilne.conveyor.cloud/api/events";
     private ListView listView;
     EventJSONAdapter mJSONAdapter;
-    ProgressDialog mDialog;
+
+    public static Fragment newInstance() {
+        return new EventFragment();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event);
-        listView = findViewById(R.id.listView);
-        mJSONAdapter = new EventJSONAdapter(this, getLayoutInflater());
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_event, parent, false);
+        listView = rootView.findViewById(R.id.event_listview);
+        mJSONAdapter = new EventJSONAdapter(IM.context(), inflater);
         listView.setAdapter(mJSONAdapter);
-        mDialog = new ProgressDialog(this);
-        mDialog.setMessage("Searching for Events");
-        mDialog.setCancelable(false);
-        mDialog.show();
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(QUERY_URL,
                 new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(JSONObject jsonObject) {
-                        Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
                         mJSONAdapter.updateData(jsonObject.optJSONArray("events"));
-                        mDialog.dismiss();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Toast.makeText(getApplicationContext(), "Error: " + statusCode + " " + throwable.getMessage(), Toast.LENGTH_LONG).show();
                         Log.e("omg android", statusCode + " " + throwable.getStackTrace());
-                        mDialog.dismiss();
+
                     }
                 });
 
@@ -62,12 +61,17 @@ public class EventActivity extends AppCompatActivity {
                 JSONObject jsonObject = (JSONObject) mJSONAdapter.getItem(position);
                 String eventId = jsonObject.optString("Id", "");
 
-                Intent detailIntent = new Intent(EventActivity.this, CompetitionActivity.class);
-                detailIntent.putExtra("eventId", eventId);
-                startActivity(detailIntent);
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                manager.beginTransaction()
+                        .hide(manager.findFragmentByTag("EventFragment"))
+                        .add(R.id.main_fragment_container, CompetitionFragment.newInstance(eventId), "CompetitionFragment")
+                        .addToBackStack("CompetitionFragment")
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .commit();
             }
         });
 
 
+        return rootView;
     }
 }

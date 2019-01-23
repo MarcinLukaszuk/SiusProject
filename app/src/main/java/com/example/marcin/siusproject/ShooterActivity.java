@@ -54,10 +54,6 @@ public class ShooterActivity extends AppCompatActivity {
                 startActivity(detailIntent);
             }
         });
-
-
-
-
     }
 
     private void UpdateData() {
