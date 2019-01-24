@@ -1,4 +1,4 @@
-package com.example.marcin.siusproject;
+package com.example.marcin.siusproject.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.marcin.siusproject.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 
