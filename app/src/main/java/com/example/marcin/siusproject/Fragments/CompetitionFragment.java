@@ -58,8 +58,6 @@ public class CompetitionFragment extends Fragment {
                         .commit();
             }
         });
-
-
         return rootView;
     }
 

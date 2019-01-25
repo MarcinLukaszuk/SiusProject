@@ -21,6 +21,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONObject;
 
 public class EventFragment extends Fragment {
+
     private static final String QUERY_URL = "https://webserviceaplikacjemobilne.conveyor.cloud/api/events";
     private ListView listView;
     EventJSONAdapter mJSONAdapter;
@@ -73,8 +74,6 @@ public class EventFragment extends Fragment {
                         .commit();
             }
         });
-
-
         return rootView;
     }
 }

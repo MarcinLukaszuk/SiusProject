@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.marcin.siusproject.Helper;
 import com.example.marcin.siusproject.R;
 
 import org.json.JSONArray;
@@ -70,8 +71,8 @@ public class CompetitionJSONAdapter extends BaseAdapter {
         }
 
         holder.competitionName.setText(competitionName);
-        holder.startDate.setText(startDate);
-        holder.endDate.setText(endDate);
+        holder.startDate.setText(Helper.GetDateStringFromDateString( startDate));
+        holder.endDate.setText(Helper.GetDateStringFromDateString(endDate));
         return convertView;
     }
 

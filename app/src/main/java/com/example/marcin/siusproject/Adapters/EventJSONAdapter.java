@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.marcin.siusproject.Helper;
 import com.example.marcin.siusproject.R;
 
 import org.json.JSONArray;
@@ -79,8 +80,8 @@ public class EventJSONAdapter extends BaseAdapter {
             cityName = jsonObject.optString("CityName");
 
         holder.eventName.setText(eventName);
-        holder.startDate.setText(   startDate.substring(0, 10))   ;
-        holder.endDate.setText(endDate.substring(0, 10));
+        holder.startDate.setText(Helper.GetDateStringFromDateString(startDate)  )   ;
+        holder.endDate.setText(Helper.GetDateStringFromDateString( endDate));
         holder.cityName.setText(cityName);
         return convertView;
     }
