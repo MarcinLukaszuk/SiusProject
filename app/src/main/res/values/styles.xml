@@ -7,5 +7,32 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="titles_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/details_title</item>
+        <item name="android:textSize">@dimen/titleFontSize</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
+
+    <style name="under_titles_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/underTitleFontSize</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
+    <style name="date_style_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/details_title</item>
+        <item name="android:textSize">@dimen/dateFontSize</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
+    <style name="date_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dateFontSize</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
 
 </resources>

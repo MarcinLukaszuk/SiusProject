@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SiusProject</string>
+    <string name="event_name">Wydarzenie</string>
+    <string name="competition_name">Konkurencja</string>
+    <string name="city">Miasto</string>
+    <string name="start_date">Data Rozpoczęcia</string>
+    <string name="end_date">Data Zakończenia</string>
 </resources>

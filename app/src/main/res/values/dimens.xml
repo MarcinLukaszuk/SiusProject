@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="opisHeight">124dp</dimen>
+    <dimen name="titleFontSize">24sp</dimen>
+    <dimen name="underTitleFontSize">20sp</dimen>
+    <dimen name="dateFontSize">14sp</dimen>
+</resources>
