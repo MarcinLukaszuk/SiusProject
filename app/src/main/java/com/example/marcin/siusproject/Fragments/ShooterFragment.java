@@ -45,7 +45,7 @@ public class ShooterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_shooters, parent, false);
         listView = rootView.findViewById(R.id.shooterListView);
-        mJSONAdapter = new ShooterJSONAdapter(IM.context(), inflater);
+        mJSONAdapter = new ShooterJSONAdapter(IM.context(), inflater,getActivity());
         listView.setAdapter(mJSONAdapter);
         callAsynchronousShootersUpdate();
 

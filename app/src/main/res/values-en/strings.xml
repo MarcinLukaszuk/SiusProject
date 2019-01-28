@@ -5,4 +5,6 @@
     <string name="city">City</string>
     <string name="start_date">Start Date </string>
     <string name="end_date">End Date</string>
+    <string name="shooter_name">Shooter</string>
+    <string name="results_name">Results</string>
 </resources>
