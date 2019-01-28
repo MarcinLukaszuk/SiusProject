@@ -3,27 +3,22 @@ package com.example.marcin.siusproject.Fragments;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.marcin.siusproject.Adapters.ShooterJSONAdapter;
 import com.example.marcin.siusproject.Adapters.ShootsJSONAdapter;
 import com.example.marcin.siusproject.Helper;
 import com.example.marcin.siusproject.R;
-import com.example.marcin.siusproject.ShooterModel;
+import com.example.marcin.siusproject.CustomViewHolders.ShooterModel;
 import com.inverce.mod.core.IM;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Timer;
@@ -34,6 +29,10 @@ public class ShootsFragment extends Fragment {
     private static ShooterModel shooter;
     private TextView NameTextView;
     private TextView SurnameTextView;
+    private TextView BirthdateTextView;
+    private TextView NationalityTextView;
+
+
     private ListView listView;
     private ShootsJSONAdapter mJSONAdapter;
 
@@ -49,14 +48,19 @@ public class ShootsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_shoots, parent, false);
+        View rootView = inflater.inflate(R.layout.fragment_shooter_info, parent, false);
 
         NameTextView = rootView.findViewById(R.id.shooter_name);
         SurnameTextView = rootView.findViewById(R.id.shooter_surname);
+        BirthdateTextView = rootView.findViewById(R.id.shooter_birthdate);
+        NationalityTextView = rootView.findViewById(R.id.shooter_nationality);
+
         listView = rootView.findViewById(R.id.shootsListView);
 
         NameTextView.setText(shooter.Name);
         SurnameTextView.setText(shooter.Surname);
+        BirthdateTextView.setText(Helper.GetDateStringFromDateString( shooter.BirthDate));
+        NationalityTextView.setText(shooter.Nationality );
 
         mJSONAdapter = new ShootsJSONAdapter(IM.context(), inflater);
         listView.setAdapter(mJSONAdapter);

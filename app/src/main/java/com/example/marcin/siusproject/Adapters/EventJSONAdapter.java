@@ -65,9 +65,9 @@ public class EventJSONAdapter extends BaseAdapter {
 
         JSONObject jsonObject = (JSONObject) getItem(position);
         String eventName = "";
-        String  cityName = "";
-        String  startDate = "";
-        String  endDate = "";
+        String cityName = "";
+        String startDate = "";
+        String endDate = "";
 
         if (jsonObject.has("Name"))
             eventName = jsonObject.optString("Name");
@@ -82,8 +82,8 @@ public class EventJSONAdapter extends BaseAdapter {
         holder.eventName.setText(eventName);
         holder.cityName.setText(cityName);
 
-       holder.startDate.setText(Helper.GetDateStringFromDateString(startDate)  )   ;
-        holder.endDate.setText(Helper.GetDateStringFromDateString( endDate));
+        holder.startDate.setText(Helper.GetDateStringFromDateString(startDate));
+        holder.endDate.setText(Helper.GetDateStringFromDateString(endDate));
         return convertView;
     }
 

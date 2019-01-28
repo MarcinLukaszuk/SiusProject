@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import com.example.marcin.siusproject.Adapters.ShooterJSONAdapter;
 import com.example.marcin.siusproject.R;
-import com.example.marcin.siusproject.ShooterModel;
+import com.example.marcin.siusproject.CustomViewHolders.ShooterModel;
 import com.inverce.mod.core.IM;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -63,7 +63,7 @@ public class ShooterFragment extends Fragment {
                 shModel.Name = jsonObject.optString("Name", "");
                 shModel.Surname = jsonObject.optString("Surname", "");
                 shModel.BirthDate = jsonObject.optString("BirthDate", "");
-                shModel.Nationality = jsonObject.optString("Name", "");
+                shModel.Nationality = jsonObject.optString("Nationality", "");
                 shModel.ShooterEventCompetitionId = jsonObject.optString("ShooterEventCompetitionId", "");
 
                 manager.beginTransaction()

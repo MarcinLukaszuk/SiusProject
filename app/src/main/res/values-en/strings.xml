@@ -7,4 +7,9 @@
     <string name="end_date">End Date</string>
     <string name="shooter_name">Shooter</string>
     <string name="results_name">Results</string>
+
+    <string name="shooter_name_label">Name</string>
+    <string name="shooter_surname_label">Surname</string>
+    <string name="shooter_birthdate_label">Birthdate</string>
+    <string name="shooter_nationality_label">Nationality</string>
 </resources>

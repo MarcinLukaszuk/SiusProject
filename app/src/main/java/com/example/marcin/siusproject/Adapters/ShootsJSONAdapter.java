@@ -46,7 +46,7 @@ public class ShootsJSONAdapter extends BaseAdapter {
         ShootsJSONAdapter.ViewHolder holder;
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.shoots_row, null);
+            convertView = mInflater.inflate(R.layout.shooter_info_row, null);
             holder = new ShootsJSONAdapter.ViewHolder();
             holder.ShootsSeries = (TextView) convertView.findViewById(R.id.shoots_series);
             holder.FullResult = (TextView) convertView.findViewById(R.id.shoots_full_result);

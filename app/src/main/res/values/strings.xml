@@ -7,4 +7,9 @@
     <string name="end_date">Data Zakończenia</string>
     <string name="shooter_name">Zawodnik</string>
     <string name="results_name">Wyniki</string>
+
+    <string name="shooter_name_label">Imię</string>
+    <string name="shooter_surname_label">Nazwisko</string>
+    <string name="shooter_birthdate_label">Data Urodzenia</string>
+    <string name="shooter_nationality_label">Data Urodzenia</string>
 </resources>

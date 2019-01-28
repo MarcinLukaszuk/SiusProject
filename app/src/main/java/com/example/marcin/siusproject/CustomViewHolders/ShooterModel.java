@@ -1,4 +1,4 @@
-package com.example.marcin.siusproject;
+package com.example.marcin.siusproject.CustomViewHolders;
 
 public class ShooterModel {
     public String Id;
