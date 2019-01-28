@@ -45,7 +45,7 @@ public class ShooterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_shooters, parent, false);
         listView = rootView.findViewById(R.id.shooterListView);
-        mJSONAdapter = new ShooterJSONAdapter(IM.context(), inflater,getActivity());
+        mJSONAdapter = new ShooterJSONAdapter(IM.context(), inflater, getActivity());
         listView.setAdapter(mJSONAdapter);
         callAsynchronousShootersUpdate();
 
@@ -65,7 +65,7 @@ public class ShooterFragment extends Fragment {
                 shModel.BirthDate = jsonObject.optString("BirthDate", "");
                 shModel.Nationality = jsonObject.optString("Nationality", "");
                 shModel.ShooterEventCompetitionId = jsonObject.optString("ShooterEventCompetitionId", "");
-
+                shModel.ShootsArray = jsonObject.optJSONArray("Shoots");
                 manager.beginTransaction()
                         .hide(manager.findFragmentByTag("ShooterFragment"))
                         .add(R.id.main_fragment_container, ShootsFragment.newInstance(shModel), "ShootsFragment")

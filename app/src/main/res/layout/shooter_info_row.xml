@@ -6,6 +6,7 @@
     android:layout_alignParentLeft="true"
     android:orientation="horizontal">
 
+    //tutaj trzeba recyclerView
     <TextView
         android:id="@+id/shoots_series"
         android:layout_width="wrap_content"
@@ -24,5 +25,13 @@
         android:textColor="@android:color/holo_red_light"
         android:textSize="25sp"
         android:textStyle="bold" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shoots_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>

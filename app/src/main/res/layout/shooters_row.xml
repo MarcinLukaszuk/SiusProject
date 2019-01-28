@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical"
     android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:descendantFocusability="blocksDescendants">
+    android:paddingRight="8dp">
 
     <TextView
         style="@style/titles_style"
@@ -30,18 +30,17 @@
             android:id="@+id/shooter_full_result"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
             android:textColor="@android:color/holo_red_light"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"
-            />
+            android:textStyle="bold" android:layout_marginLeft="12dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cardView"
-            android:layout_toLeftOf="@+id/shooter_full_result"
-            android:layout_alignParentLeft="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/shooter_full_result" />
 
     </RelativeLayout>
 

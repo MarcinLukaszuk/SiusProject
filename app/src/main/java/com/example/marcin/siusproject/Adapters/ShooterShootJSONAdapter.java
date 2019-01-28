@@ -5,17 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.marcin.siusproject.CustomViewHolders.ShooterSerieViewHolder;
+import com.example.marcin.siusproject.CustomViewHolders.ShooterShootViewHolder;
 import com.example.marcin.siusproject.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ShooterSerieJSONAdapter extends RecyclerView.Adapter<ShooterSerieViewHolder> {
+public class ShooterShootJSONAdapter extends RecyclerView.Adapter<ShooterShootViewHolder> {
 
     JSONArray mJsonArray;
 
-    public ShooterSerieJSONAdapter(JSONArray _mJsonArray) {
+    public ShooterShootJSONAdapter(JSONArray _mJsonArray) {
         mJsonArray = _mJsonArray;
     }
 
@@ -24,19 +24,19 @@ public class ShooterSerieJSONAdapter extends RecyclerView.Adapter<ShooterSerieVi
     }
 
     @Override
-    public ShooterSerieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ShooterShootViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_serie, parent, false);
-        ShooterSerieViewHolder holder = new ShooterSerieViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_shoot, parent, false);
+        ShooterShootViewHolder holder = new ShooterShootViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(final ShooterSerieViewHolder holder, int position) {
+    public void onBindViewHolder(final ShooterShootViewHolder holder, int position) {
         JSONObject object = getItem(position);
         String stringValue = "";
-        if (object.has("Value")) {
-            stringValue = object.optString("Value");
+        if (object.has("value")) {
+            stringValue = object.optString("value");
         }
         holder.titleTextView.setText(stringValue);
     }

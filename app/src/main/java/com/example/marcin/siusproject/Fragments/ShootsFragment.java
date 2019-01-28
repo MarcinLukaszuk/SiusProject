@@ -59,12 +59,12 @@ public class ShootsFragment extends Fragment {
 
         NameTextView.setText(shooter.Name);
         SurnameTextView.setText(shooter.Surname);
-        BirthdateTextView.setText(Helper.GetDateStringFromDateString( shooter.BirthDate));
-        NationalityTextView.setText(shooter.Nationality );
+        BirthdateTextView.setText(Helper.GetDateStringFromDateString(shooter.BirthDate));
+        NationalityTextView.setText(shooter.Nationality);
 
-        mJSONAdapter = new ShootsJSONAdapter(IM.context(), inflater);
+        mJSONAdapter = new ShootsJSONAdapter(IM.context(), inflater,getActivity());
         listView.setAdapter(mJSONAdapter);
-
+        mJSONAdapter.updateData(parseShootsToSeries(shooter.ShootsArray));
         callAsynchronousShootersUpdate();
         return rootView;
     }
@@ -73,18 +73,28 @@ public class ShootsFragment extends Fragment {
         JSONArray seriesArray = new JSONArray();
         double seriesResult = 0.0;
         String shootsString = "";
+        JSONArray tenShootsArray= new JSONArray();
+
         for (int i = 0; i < shootsArray.length(); i++) {
             try {
                 seriesResult += shootsArray.getJSONObject(i).getDouble("Value");
+                String tmpString= shootsArray.getJSONObject(i).getDouble("Value")+"";
                 shootsString += Helper.ParseDoubleToDecimalString(shootsArray.getJSONObject(i).getDouble("Value") + "") + " ";
+                JSONObject shoot = new JSONObject();
+                shoot.put("value", Helper.ParseDoubleToDecimalString(shootsArray.getJSONObject(i).getDouble("Value") + ""));
+                tenShootsArray.put(shoot);
+
                 if ((i + 1) % 10 == 0) {
                     JSONObject newObject = new JSONObject();
                     newObject.put("shootsString", shootsString);
                     newObject.put("result", Helper.ParseDoubleToDecimalString(String.valueOf(seriesResult)));
+                    newObject.put("shoots", tenShootsArray);
+
                     seriesArray.put(newObject);
 
                     seriesResult = 0.0;
                     shootsString = "";
+                    tenShootsArray = new JSONArray();
                 }
             } catch (Exception ex) {
 
@@ -95,6 +105,7 @@ public class ShootsFragment extends Fragment {
                 JSONObject newObject = new JSONObject();
                 newObject.put("shootsString", shootsString);
                 newObject.put("result", seriesResult);
+                newObject.put("shoots", tenShootsArray);
                 seriesArray.put(newObject);
             }
         } catch (Exception ex) {

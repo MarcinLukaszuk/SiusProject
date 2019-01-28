@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import com.example.marcin.siusproject.R;
 
-public class ShooterSerieViewHolder extends RecyclerView.ViewHolder {
+public class ShooterShootViewHolder extends RecyclerView.ViewHolder {
     public TextView titleTextView;
 
-    public ShooterSerieViewHolder(View v) {
+    public ShooterShootViewHolder(View v) {
         super(v);
-        titleTextView = (TextView) v.findViewById(R.id.serieTextView);
+        titleTextView = (TextView) v.findViewById(R.id.shootTextView);
     }
 }
