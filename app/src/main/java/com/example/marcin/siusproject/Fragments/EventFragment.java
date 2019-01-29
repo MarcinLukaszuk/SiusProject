@@ -29,6 +29,7 @@ public class EventFragment extends Fragment {
     private ListView listView;
     EventJSONAdapter mJSONAdapter;
     private ShakeListener mShaker;
+    private FragmentManager manager;
 
     public static Fragment newInstance() {
         return new EventFragment();
@@ -37,14 +38,6 @@ public class EventFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mShaker = new ShakeListener(IM.context());
-        mShaker.setOnShakeListener(new ShakeListener.OnShakeListener() {
-            @SuppressLint("WrongConstant")
-            public void onShake() {
-                UpdateData();
-                Toast.makeText(IM.context(), "Events Updated",  2).show();
-            }
-        });
     }
 
     @Override
@@ -54,8 +47,17 @@ public class EventFragment extends Fragment {
         listView = rootView.findViewById(R.id.event_listview);
         mJSONAdapter = new EventJSONAdapter(IM.context(), inflater);
         listView.setAdapter(mJSONAdapter);
-        UpdateData();
+        manager = getActivity().getSupportFragmentManager();
+        mShaker = new ShakeListener(IM.context());
 
+        mShaker.setOnShakeListener(new ShakeListener.OnShakeListener() {
+            public void onShake() {
+                UpdateData();
+            }
+        });
+
+
+        UpdateData();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -63,10 +65,10 @@ public class EventFragment extends Fragment {
                 mShaker.pause();
                 JSONObject jsonObject = (JSONObject) mJSONAdapter.getItem(position);
                 String eventId = jsonObject.optString("Id", "");
-                FragmentManager manager = getActivity().getSupportFragmentManager();
+
                 manager.beginTransaction()
                         .hide(manager.findFragmentByTag("EventFragment"))
-                        .add(R.id.main_fragment_container, CompetitionFragment.newInstance(eventId), "CompetitionFragment")
+                        .replace(R.id.main_fragment_container, CompetitionFragment.newInstance(eventId), "CompetitionFragment")
                         .addToBackStack("CompetitionFragment")
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
@@ -79,9 +81,11 @@ public class EventFragment extends Fragment {
         new AsyncHttpClient()
                 .get(QUERY_URL,
                         new JsonHttpResponseHandler() {
+                            @SuppressLint("WrongConstant")
                             @Override
                             public void onSuccess(JSONObject jsonObject) {
                                 mJSONAdapter.updateData(jsonObject.optJSONArray("events"));
+                                Toast.makeText(IM.context(), R.string.events_updated, 2).show();
                             }
 
                             @Override
@@ -90,10 +94,5 @@ public class EventFragment extends Fragment {
 
                             }
                         });
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 }

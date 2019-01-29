@@ -23,10 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentContainer = findViewById(R.id.main_fragment_container);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragment_container, EventFragment.newInstance(), "EventFragment")
-                .commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment_container, EventFragment.newInstance(), "EventFragment")
+                    .commit();
 
+        }
     }
 }
