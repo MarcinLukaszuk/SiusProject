@@ -12,4 +12,6 @@
     <string name="shooter_surname_label">Surname</string>
     <string name="shooter_birthdate_label">Birthdate</string>
     <string name="shooter_nationality_label">Nationality</string>
+
+    <string name="events_updated">Events Updated</string>
 </resources>
