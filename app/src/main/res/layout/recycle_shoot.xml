@@ -5,5 +5,7 @@
 
     <TextView
         android:id="@+id/shootTextView"
-        style="@style/horizontal_element_style" />
+        style="@style/horizontal_element_style"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
