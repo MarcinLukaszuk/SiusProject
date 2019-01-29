@@ -5,10 +5,5 @@
 
     <TextView
         android:id="@+id/shootTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginRight="6dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        style="@style/horizontal_element_style" />
 </LinearLayout>

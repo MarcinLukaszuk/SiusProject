@@ -7,4 +7,6 @@
     <dimen name="titleFontSize">24sp</dimen>
     <dimen name="underTitleFontSize">20sp</dimen>
     <dimen name="dateFontSize">14sp</dimen>
+    <dimen name="horizontalElementFontSize">20sp</dimen>
+
 </resources>

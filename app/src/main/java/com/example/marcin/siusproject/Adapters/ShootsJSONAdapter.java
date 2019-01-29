@@ -53,7 +53,6 @@ public class ShootsJSONAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.shooter_info_row, null);
             holder = new ShootsJSONAdapter.ViewHolder();
-            holder.ShootsSeries = (TextView) convertView.findViewById(R.id.shoots_series);
             holder.FullResult = (TextView) convertView.findViewById(R.id.shoots_full_result);
             holder.ShootsRecycler = (RecyclerView) convertView.findViewById(R.id.shoots_recycler);
 
@@ -84,9 +83,7 @@ public class ShootsJSONAdapter extends BaseAdapter {
             holder.ShootsRecycler.setLayoutManager(MyLayoutManager);
         }
 
-
-        //holder.ShootsSeries.setText(shootsString);
-        //holder.FullResult.setText(result);
+        holder.FullResult.setText(result);
         return convertView;
     }
 
@@ -122,7 +119,6 @@ public class ShootsJSONAdapter extends BaseAdapter {
     }
 
     private static class ViewHolder {
-        public TextView ShootsSeries;
         public TextView FullResult;
         public RecyclerView ShootsRecycler;
     }

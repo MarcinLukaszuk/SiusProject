@@ -28,12 +28,8 @@
 
         <TextView
             android:id="@+id/shooter_full_result"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="20sp"
-            android:textStyle="bold" android:layout_marginLeft="12dp" />
+            style="@style/horizontal_element_style"
+            android:layout_alignParentRight="true" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cardView"
