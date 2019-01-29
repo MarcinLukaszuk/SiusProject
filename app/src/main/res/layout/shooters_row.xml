@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/shooter_full_result"
-            style="@style/horizontal_element_style"
+            style="@style/horizontal_red_element_style"
             android:layout_alignParentRight="true" />
 
         <android.support.v7.widget.RecyclerView
