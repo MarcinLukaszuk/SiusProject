@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class EventFragment extends Fragment {
 
-    private static final String QUERY_URL = "https://webserviceaplikacjemobilne.conveyor.cloud/api/events";
+    private static final String QUERY_URL = "http://192.168.56.1:45455/api/events";
     private ListView listView;
     EventJSONAdapter mJSONAdapter;
 

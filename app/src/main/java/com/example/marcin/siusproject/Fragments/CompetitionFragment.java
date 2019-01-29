@@ -19,7 +19,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONObject;
 
 public class CompetitionFragment extends Fragment {
-    private static final String QUERY_URL = "https://webserviceaplikacjemobilne.conveyor.cloud/api/eventcompetitions";
+    private static final String QUERY_URL = "http://192.168.56.1:45455/api/eventcompetitions";
     private ListView listView;
     private CompetitionJSONAdapter mJSONAdapter;
     private static String eventId;

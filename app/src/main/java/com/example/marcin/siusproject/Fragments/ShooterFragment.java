@@ -25,7 +25,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ShooterFragment extends Fragment {
-    private static final String QUERY_URL = "https://webserviceaplikacjemobilne.conveyor.cloud/api/ShooterEventCompetitions";
+    private static final String QUERY_URL = "http://192.168.56.1:45455/api/ShooterEventCompetitions";
     private static String competitionEventId;
     private ListView listView;
     private ShooterJSONAdapter mJSONAdapter;
