@@ -11,5 +11,5 @@
     <string name="shooter_name_label">Imię</string>
     <string name="shooter_surname_label">Nazwisko</string>
     <string name="shooter_birthdate_label">Data Urodzenia</string>
-    <string name="shooter_nationality_label">Data Urodzenia</string>
+    <string name="shooter_nationality_label">Narodowość</string>
 </resources>
